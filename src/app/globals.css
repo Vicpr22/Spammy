@@ -1,0 +1,167 @@
+body {
+  background: linear-gradient(to top, #ffecd2, #fcb69f);
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #3498db);
+}
+
+.app-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.post-form-container {
+  margin-bottom: 20px;
+}
+
+.post-input {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.post-submit-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.post-list-container {
+  border-top: 2px solid #ccc;
+  padding-top: 20px;
+}
+
+.post-item {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.post-item h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.post-item p {
+  margin-bottom: 10px;
+}
+
+.comment-form {
+  margin-top: 10px;
+}
+
+.comment-input {
+  width: 80%;
+  padding: 5px;
+}
+
+.comment-submit-button {
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+.post-item {
+  border-bottom: 1px solid #eee;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: aliceblue;
+}
+
+.post-item h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.post-item p {
+  margin-bottom: 10px;
+}
+
+.comment-form {
+  margin-top: 10px;
+}
+
+.comment-input {
+  width: 80%;
+  padding: 5px;
+}
+
+.comment-submit-button {
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+.edit-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.like-button {
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.delete-button {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+.post-list-container {
+  list-style: none;
+  padding: 0;
+}
+
+.post-list-item {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.comment-item {
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.comment-item p {
+  margin: 0; /* Reset default margin for paragraphs inside comments */
+}
+
+.comment-item .edit-button,
+.comment-item .delete-button {
+  margin-right: 5px;
+}
+.post-submit-button,
+.comment-submit-button,
+.edit-button,
+.like-button,
+.delete-button {
+  transition: background-color 0.3s ease;
+}
+.post-submit-button:hover,
+.comment-submit-button:hover,
+.edit-button:hover,
+.like-button:hover,
+.delete-button:hover {
+  background-color: #2980b9; /* Change to a slightly darker shade on hover */
+}
