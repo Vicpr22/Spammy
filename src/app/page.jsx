@@ -1,11 +1,13 @@
 "use client";
+export const dynamic = "force-dynamic";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation.js";
 import PostList from "@/components/PostList.jsx";
 import LikeButton from "@/components/LikeButton.jsx";
 import DeleteButton from "@/components/DeleteButton.jsx";
 import EditButton from "@/components/EditButton.jsx";
 
-const API = "https://spammer-theta.vercel.app";
+// const API = "https://spammer-theta.vercel.app";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -13,9 +15,11 @@ const Home = () => {
   const [selectedPost, setSelectedPost] = useState(null);
   const [newCommentText, setNewCommentText] = useState("");
 
+  const router = useRouter();
+
   const fetchPostsAndComments = async () => {
     try {
-      const postsResponse = await fetch(`${API}/api/posts`);
+      const postsResponse = await fetch(`/api/posts`);
       const postsData = await postsResponse.json();
       setPosts(postsData.posts);
 
@@ -23,7 +27,7 @@ const Home = () => {
       const postsWithComments = await Promise.all(
         postsData.posts.map(async (post) => {
           const commentsResponse = await fetch(
-            `${API}/api/posts/${post.id}/comments`
+            `/api/posts/${post.id}/comments`
           );
           const commentsData = await commentsResponse.json();
           return { ...post, comments: commentsData.comments };
@@ -42,7 +46,7 @@ const Home = () => {
 
   const handlePostSubmit = async () => {
     try {
-      const response = await fetch(`${API}/api/posts`, {
+      const response = await fetch(`/api/posts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,6 +58,7 @@ const Home = () => {
       const data = await response.json();
       setPosts([...posts, data.post]);
       setNewPostText("");
+      router.refresh();
     } catch (error) {
       console.error("Error submitting post:", error);
     }
@@ -63,7 +68,7 @@ const Home = () => {
     if (!selectedPost) return;
 
     try {
-      const response = await fetch(`${API}/api/posts/${selectedPost.id}`, {
+      const response = await fetch(`/api/posts/${selectedPost.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -85,7 +90,7 @@ const Home = () => {
 
   const handlePostDelete = async (postId) => {
     try {
-      const response = await fetch(`${API}/api/posts/${postId}`, {
+      const response = await fetch(`/api/posts/${postId}`, {
         method: "DELETE",
       });
       const data = await response.json();
@@ -104,7 +109,7 @@ const Home = () => {
         return;
       }
 
-      const response = await fetch(`${API}/api/posts/${postId}/comments`, {
+      const response = await fetch(`/api/posts/${postId}/comments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -134,7 +139,7 @@ const Home = () => {
 
   const handleLikePost = async (postId) => {
     try {
-      const response = await fetch(`${API}/api/posts/${postId}/likes`, {
+      const response = await fetch(`/api/posts/${postId}/likes`, {
         method: "POST",
       });
       const data = await response.json();
